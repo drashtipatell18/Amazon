@@ -1,73 +1,115 @@
-@extends('layouts.app')
+<html lang="en" class="material-style layout-fixed">
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+<head>
+    <title>Log In</title>
+    <link href="{{ asset('assets/fonts/fontawesome.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/fonts/linearicons.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/fonts/open-iconic.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/fonts/pe-icon-7-stroke.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/fonts/feather.css') }}" rel="stylesheet">
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
-                        @csrf
+    <!-- Core stylesheets -->
+    <link href="{{ asset('assets/css/bootstrap-material.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/shreerang-material.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/uikit.css') }}" rel="stylesheet">
 
-                        <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
+    <!-- Libs -->
+    <link href="{{ asset('assets/libs/perfect-scrollbar/perfect-scrollbar.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/libs/flot/flot.css') }}" rel="stylesheet">
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+</head>
+<style>
+    .card {
+        margin-top: 25%;
+    }
+</style>
 
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8 mt-5">
+                <div class="card">
+                    <div class="card-header">{{ __('Login') }}</div>
 
-                        <div class="row mb-3">
-                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
+                    <div class="card-body">
+                        <div class="authentication-wrapper authentication-1 px-4">
+                            <div class="authentication-inner py-5">
 
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                    <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
-                                    </label>
+                                <!-- [ Logo ] Start -->
+                                <div class="d-flex justify-content-center align-items-center">
+                                    <div class="ui-w-60">
+                                        <div class="w-100 position-relative">
+                                            <img src="assets/img/logo-dark.png" alt="Brand Logo" class="img-fluid">
+                                        </div>
+                                    </div>
                                 </div>
+
+                                <!-- [ Form ] Start -->
+                                <form method="POST" action="{{ route('login') }}">
+                                    @csrf
+                                    <div class="form-group">
+                                        <label class="form-label">Email</label>
+                                        <input type="text" name="email" class="form-control @error('email') is-invalid @enderror">
+                                        @error('email')
+                                            <div class="invalid-feedback error-message" style="color: red">
+                                                <strong>{{ $message }}</strong>
+                                            </div>
+                                        @enderror
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label d-flex justify-content-between align-items-end">
+                                            <span>Password</span>
+                                            <a href="pages_authentication_password-reset.html"
+                                                class="d-block small">Forgot password?</a>
+                                        </label>
+                                        <input type="password" name="password"
+                                            class="form-control @error('password') is-invalid @enderror">
+                                        @error('password')
+                                            <div class="invalid-feedback error-message" style="color: red">
+                                                <strong>{{ $message }}</strong>
+                                            </div>
+                                        @enderror
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-center m-0">
+                                        <label class="custom-control custom-checkbox m-0">
+                                            <input type="checkbox" class="custom-control-input">
+                                            <span class="custom-control-label">Remember me</span>
+                                        </label>
+                                        <button type="submit" class="btn btn-primary">Sign In</button>
+                                    </div>
+                                </form>
+                                <!-- [ Form ] End -->
                             </div>
                         </div>
-
-                        <div class="row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
-                                </button>
-
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif
-                            </div>
-                        </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-@endsection
+    <script src="{{ asset('assets/js/pace.js') }}"></script>
+    <script src="{{ asset('assets/js/jquery-3.3.1.min.js') }}"></script>
+    <script src="{{ asset('assets/libs/popper/popper.js') }}"></script>
+    <script src="{{ asset('assets/js/bootstrap.js') }}"></script>
+    <script src="{{ asset('assets/js/sidenav.js') }}"></script>
+    <script src="{{ asset('assets/js/layout-helpers.js') }}"></script>
+    <script src="{{ asset('assets/js/material-ripple.js') }}"></script>
+
+    <!-- Libs -->
+    <script src="{{ asset('assets/libs/perfect-scrollbar/perfect-scrollbar.js') }}"></script>
+    <script src="{{ asset('assets/libs/eve/eve.js') }}"></script>
+    <script src="{{ asset('assets/libs/flot/flot.js') }}"></script>
+    <script src="{{ asset('assets/libs/flot/curvedLines.js') }}"></script>
+    <script src="{{ asset('assets/libs/chart-am4/core.js') }}"></script>
+    <script src="{{ asset('assets/libs/chart-am4/charts.js') }}"></script>
+    <script src="{{ asset('assets/libs/chart-am4/animated.js') }}"></script>
+
+    <!-- Demo -->
+    <script src="{{ asset('assets/js/demo.js') }}"></script>
+    <script src="{{ asset('assets/js/analytics.js') }}"></script>
+    <script src="{{ asset('assets/js/pages/dashboards_index.js') }}"></script>
+
+</body>
+
+</html>

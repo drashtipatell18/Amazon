@@ -19,6 +19,7 @@
     <!-- Google fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
     <!-- Icon fonts -->
     <link href="{{ asset('assets/fonts/fontawesome.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/fonts/linearicons.css') }}" rel="stylesheet">
@@ -316,14 +317,8 @@
                                     </span>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right">
-                                    <a href="javascript:" class="dropdown-item">
-                                        <i class="feather icon-user text-muted"></i> &nbsp; My profile</a>
-                                    <a href="javascript:" class="dropdown-item">
-                                        <i class="feather icon-mail text-muted"></i> &nbsp; Messages</a>
-                                    <a href="javascript:" class="dropdown-item">
-                                        <i class="feather icon-settings text-muted"></i> &nbsp; Account settings</a>
                                     <div class="dropdown-divider"></div>
-                                    <a href="javascript:" class="dropdown-item">
+                                    <a href="{{ route('logout') }}" class="dropdown-item">
                                         <i class="feather icon-power text-danger"></i> &nbsp; Log Out</a>
                                 </div>
                             </div>
