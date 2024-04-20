@@ -53,9 +53,11 @@
                 <!-- Brand demo (see assets/css/demo/demo.css) -->
                 <div class="app-brand demo">
                     <span class="app-brand-logo demo">
-                        <img src="assets/img/logo.png" alt="Brand Logo" class="img-fluid">
+                        {{-- <img src="assets/img/logo.png" alt="Brand Logo" class="img-fluid"> --}}
+                        <img src="{{ asset('assets/img/logo.png')}}" alt="Brand Logo" class="img-fluid">
+
                     </span>
-                    <a href="index.html" class="app-brand-text demo sidenav-text font-weight-normal ml-2">Bhumlu</a>
+                    <a href="index.html" class="app-brand-text demo sidenav-text font-weight-normal ml-2">Amazon</a>
                     <a href="javascript:" class="layout-sidenav-toggle sidenav-link text-large ml-auto">
                         <i class="ion ion-md-menu align-middle"></i>
                     </a>
