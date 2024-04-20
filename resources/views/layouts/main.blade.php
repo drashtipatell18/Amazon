@@ -19,6 +19,7 @@
     <!-- Google fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
     <!-- Icon fonts -->
     <link href="{{ asset('assets/fonts/fontawesome.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/fonts/linearicons.css') }}" rel="stylesheet">
@@ -53,9 +54,11 @@
                 <!-- Brand demo (see assets/css/demo/demo.css) -->
                 <div class="app-brand demo">
                     <span class="app-brand-logo demo">
-                        <img src="assets/img/logo.png" alt="Brand Logo" class="img-fluid">
+                        {{-- <img src="assets/img/logo.png" alt="Brand Logo" class="img-fluid"> --}}
+                        <img src="{{ asset('assets/img/logo.png')}}" alt="Brand Logo" class="img-fluid">
+
                     </span>
-                    <a href="index.html" class="app-brand-text demo sidenav-text font-weight-normal ml-2">Bhumlu</a>
+                    <a href="index.html" class="app-brand-text demo sidenav-text font-weight-normal ml-2">Amazon</a>
                     <a href="javascript:" class="layout-sidenav-toggle sidenav-link text-large ml-auto">
                         <i class="ion ion-md-menu align-middle"></i>
                     </a>
@@ -317,14 +320,8 @@
                                     </span>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right">
-                                    <a href="javascript:" class="dropdown-item">
-                                        <i class="feather icon-user text-muted"></i> &nbsp; My profile</a>
-                                    <a href="javascript:" class="dropdown-item">
-                                        <i class="feather icon-mail text-muted"></i> &nbsp; Messages</a>
-                                    <a href="javascript:" class="dropdown-item">
-                                        <i class="feather icon-settings text-muted"></i> &nbsp; Account settings</a>
                                     <div class="dropdown-divider"></div>
-                                    <a href="javascript:" class="dropdown-item">
+                                    <a href="{{ route('logout') }}" class="dropdown-item">
                                         <i class="feather icon-power text-danger"></i> &nbsp; Log Out</a>
                                 </div>
                             </div>

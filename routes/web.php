@@ -2,20 +2,26 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboradController;
-use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\SubCategoryController;
-use App\Http\Controllers\Admin\BrandController;
+use App\Http\Controllers\Brand\BrandController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\ReturnController;
 use App\Http\Controllers\Admin\DiscountController;
+use App\Http\Controllers\HomeController;
 
 Route::get('/', function () {
     return view('welcome');
 });
-Auth::routes();
+Auth::routes([
+    'register' => false, 
+    'reset' => false,    
+    'verify' => false   
+]);
 
+Route::get('/logout',[HomeController::class,'Logout'])->name('logout');
 Route::get('/dashborad', [DashboradController::class, 'dashborad'])->name('dashborad');
 
 //Category//
@@ -68,7 +74,7 @@ Route::get('/discount/destroy/{id}',[DiscountController::class,'destroyDiscount'
 
 Route::get('/brand', [BrandController::class, 'brand'])->name('brand');
 Route::get('/brand/create', [BrandController::class, 'createBrand'])->name('brand.create');
-Route::post('/brand/store', [BrandController::class, 'storeBrand'])->name('brand.store');
+Route::post('/brand/insert', [BrandController::class, 'insertBrand'])->name('brand.store');
 Route::get('/brand/edit/{id}', [BrandController::class, 'EditBrand'])->name('edit.brand');
 Route::post('/brand/update/{id}', [BrandController::class, 'UpdateBrand'])->name('update.brand');
 Route::get('/brand/destroy/{id}',[BrandController::class,'destroyBrand'])->name('destroy.brand');   
