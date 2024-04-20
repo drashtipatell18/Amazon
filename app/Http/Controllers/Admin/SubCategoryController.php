@@ -18,7 +18,7 @@ class SubCategoryController extends Controller
         $category = Category::pluck('name','name');
         return view('admin.subcategory.create_subcategory',compact('category'));
     }
-    public function storeCategory(Request $request) {
+    public function storesubCategory(Request $request) {
         $request->validate([
             'category' => 'required',
             'name' => 'required',
@@ -31,13 +31,15 @@ class SubCategoryController extends Controller
             'slug' => $request->input('slug'),
             'status' => $request->input('status')
         ]);
-        
-        return redirect()->route('category');
+
+        session()->flash('success', 'Subcategory added successfully!');
+        return redirect()->route('subcategory');
     }
     public function Editsubcategory($id)
     {
         $subcategory = subcategory::find($id);
-        return view('admin.subcategory.create_subcategory', compact('subcategory'));
+        $category = Category::pluck('name','name');
+        return view('admin.subcategory.create_subcategory', compact('subcategory','category'));
     }
 
     public function Updatesubcategory(Request $request, $id)
@@ -56,13 +58,15 @@ class SubCategoryController extends Controller
             'slug' => $request->input('slug'),
             'status' => $request->input('status')
         ]);
-    
+
+        session()->flash('success', 'Subcategory Updated successfully!');
         return redirect()->route('subcategory');
     }
     public function Destroysubcategory($id)
     {
             $subcategory = subcategory::find($id);
             $subcategory->delete();
+            session()->flash('danger', 'Subcategory Delete successfully!');
             return redirect()->back();
     }
 }

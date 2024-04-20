@@ -25,7 +25,8 @@ class CategoryController extends Controller
             'name' => $request->input('name'),
             'slug' => $request->input('slug'),
         ]);
-        
+
+        session()->flash('success', 'Category added successfully!');
         return redirect()->route('category');
     }
     public function categoryEdit($id)
@@ -48,13 +49,15 @@ class CategoryController extends Controller
             'slug' => $request->input('slug')
 
         ]);
-    
+
+        session()->flash('success', 'Category Updated successfully!');
         return redirect()->route('category');
     }
     public function categoryDestroy($id)
     {
             $category = Category::find($id);
             $category->delete();
+            session()->flash('danger', 'Category Delete successfully!');
             return redirect()->back();
     }
 }

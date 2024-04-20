@@ -12,6 +12,16 @@
                     <button type="button" class="btn btn-primary btn-sm p-2">Add Sub Category</button>
                 </a>
             </div>
+            @if (session('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
+                </div>
+            @endif
+            @if (session('danger'))
+                <div class="alert alert-danger">
+                    {{ session('success') }}
+                </div>
+            @endif
         </div>
         <table id="category-table" class="table table-hover">
             <thead class="thead-dark">
@@ -23,7 +33,7 @@
                     <th>Action</th>
                 </tr>
             </thead>
-            {{-- <tbody>
+            <tbody>
                 @foreach ($subcategory as $index => $subcat)
                     <tr>
                         <th>{{ $index + 1 }}</th>
@@ -39,7 +49,7 @@
                         </td>
                     </tr>
                 @endforeach
-            </tbody> --}}
+            </tbody>
         </table>
     </div>
 @endsection

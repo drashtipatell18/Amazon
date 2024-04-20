@@ -12,6 +12,16 @@
                     <button type="button" class="btn btn-primary btn-sm p-2">Add Category</button>
                 </a>
             </div>
+            @if (session('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
+                </div>
+            @endif
+            @if (session('danger'))
+                <div class="alert alert-danger">
+                    {{ session('success') }}
+                </div>
+            @endif
         </div>
         <table id="category-table" class="table table-hover">
             <thead class="thead-dark">
@@ -23,7 +33,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($category as $index =>$cat)
+                @foreach ($category as $index => $cat)
                     <tr>
                         <th>{{ $index + 1 }}</th>
                         <td>{{ $cat->name }}</td>
@@ -31,8 +41,8 @@
                         <td>
                             <a href="{{ route('edit.category', $cat->id) }}" class="btn btn-success btn-sm"><i
                                     class="bi bi-pencil"></i></a>
-                            <a href="{{ route('destroy.category', $cat->id) }}"
-                                class="btn btn-danger btn-sm ml-1" onclick="return confirm('Are you sure you want to delete this ?');"><i
+                            <a href="{{ route('destroy.category', $cat->id) }}" class="btn btn-danger btn-sm ml-1"
+                                onclick="return confirm('Are you sure you want to delete this ?');"><i
                                     class="bi bi-trash3"></i></a>
                         </td>
                     </tr>

@@ -25,7 +25,7 @@ return new class extends Migration
             $table->string('sku');
             $table->enum('track_qty',['Yes','No'])->defult('Yes');
             $table->integer('qty');
-            $table->integer('status')->default(1);
+            $table->string('status');
             $table->timestamps();
             $table->softDeletes();
         });
