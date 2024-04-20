@@ -34,7 +34,8 @@
     <!-- Libs -->
     <link href="{{ asset('assets/libs/perfect-scrollbar/perfect-scrollbar.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/libs/flot/flot.css') }}" rel="stylesheet">
-
+    {{-- dataTables --}}
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
 </head>
 
 <body>
@@ -369,7 +370,7 @@
         <script src="{{ asset('assets/js/demo.js') }}"></script>
         <script src="{{ asset('assets/js/analytics.js') }}"></script>
         <script src="{{ asset('assets/js/pages/dashboards_index.js') }}"></script>
-
+        @stack('scripts')
 </body>
 
 </html>

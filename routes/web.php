@@ -18,7 +18,7 @@ Auth::routes();
 
 Route::get('/dashborad', [DashboradController::class, 'dashborad'])->name('dashborad');
 
-//Category //
+//Category//
 Route::get('/category', [CategoryController::class, 'category'])->name('category');
 Route::get('/category/create', [CategoryController::class, 'createCategory'])->name('category.create');
 Route::post('/category/store', [CategoryController::class, 'storeCategory'])->name('category.store');
