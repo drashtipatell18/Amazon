@@ -6,7 +6,7 @@ use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\Brand\BrandController;
-use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Product\ProductController;
 use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\ReturnController;
 use App\Http\Controllers\Admin\DiscountController;
